@@ -1,4 +1,4 @@
-![Sonic Pi logo](http://sonic-pi.net/images/logo.png)
+<img src="http://sonic-pi.net/images/logo.png" width=250 />
 # sonic-pi-jams
 En samling af musik fra de forskellige afdelinger.
 
