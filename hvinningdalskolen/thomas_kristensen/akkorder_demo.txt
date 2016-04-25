@@ -1,0 +1,67 @@
+live_loop :beat do
+  sample :loop_compus, beat_stretch: 8, amp: 4.5
+  sleep 8
+end
+
+live_loop :big_drum do
+  sample :bd_haus, amp: 3
+  sleep 0.5
+end
+
+live_loop :big_big_drum do
+  sample :bd_fat, amp: 4
+  sleep 1
+end
+
+live_loop :synth1 do
+  use_synth :growl
+
+  play :e3, amp: 4
+  sleep 1
+  play :g3, amp: 4
+  sleep 1
+  play :c3, amp: 4
+  sleep 1
+  play :d3, amp: 4
+  sleep 1
+end
+
+live_loop :synth2 do
+  use_synth :tb303
+  play :e4, amp: 0.25
+  sleep 0.25
+  play :g4, amp: 0.25
+  sleep 0.75
+end
+
+live_loop :synth3 do
+  use_synth :dull_bell
+  play :c3, amp: 3
+  sleep 0.8
+  play :d3, amp: 2
+  sleep 0.1
+  play :e3, amp: 6
+  sleep 0.1
+end
+
+live_loop :pattern do
+  use_synth :tb303
+  with_synth_defaults cutoff: 90, amp: 0.75 do
+    play_pattern_timed chord(:e3, :minor7), 0.25
+    play_pattern_timed chord(:g3, :major7), 0.25
+    play_pattern_timed chord(:c3, :major7), 0.25
+    play_pattern_timed chord(:d3, :major7), 0.25
+  end
+end
+
+live_loop :chords do
+  use_synth :dsaw
+  play chord(:e3, :minor)
+  sleep 1
+  play chord(:g3, :major)
+  sleep 1
+  play chord(:c3, :major)
+  sleep 1
+  play chord(:d3, :major)
+  sleep 1
+end
