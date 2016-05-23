@@ -1,0 +1,99 @@
+## Tilfældigheder
+
+## Vi kan printe ting ud til skærmen med "puts"
+
+# puts "Hejsa"
+
+## Det kan vi bruge til at undersøge funktioner
+## "rand" giver os et tilfældigt kommatal mellem 0 og 1:
+
+# puts rand
+# puts rand
+# puts rand
+
+## Vi kan også bruge one_in der returnere sand (true) og falsk (false).
+
+# 10.times do
+#   puts one_in 3 # ca. hver tredje gang sand
+# end
+
+## Det kan vi bruge til f.eks. at spille en tromme
+
+# live_loop :cymbal do
+#   if one_in 2
+#     sample :drum_cymbal_closed
+#   end
+#   sleep 0.125
+# end
+
+## Vi får samme tal hver gang vi starter forfra.
+## Vi kan ændre hvilke tilfældige tal vi får med "use_random_seed"
+
+# use_random_seed 42
+# 4.times do
+#   puts rand
+# end
+
+## Når vi spiller tromme loops gentager de sig selv igen og igen
+
+# live_loop :amen do
+#   sample :loop_amen, beat_stretch: 2
+#   sleep 2
+# end
+
+## Så vi skal også genstarte hvilke tilfældigheder vi får for at kunne
+## gentage vores tromme-loop. På den måde får vi det samme hver gang
+
+# live_loop :cymbal do
+#   use_random_seed 7
+#   8.times do
+#     if one_in 2
+#       sample :drum_cymbal_closed
+#     end
+#     sleep 0.125
+#   end
+# end
+
+## Lad os tilføje en fast stortromme - det lyder godt
+
+# live_loop :big_drum do
+#   sample :bd_ada
+#   sleep 1
+# end
+
+# live_loop :cymbal do
+#   use_random_seed 7
+#   8.times do
+#     if one_in 2
+#       sample :drum_cymbal_closed
+#     end
+#     sleep 0.125
+#   end
+# end
+
+## Og så ellers bare prøve os frem!
+
+# live_loop :snare do
+#   use_random_seed 5
+#   8.times do
+#     if one_in 5
+#       sample :drum_snare_soft
+#     end
+#     sleep 0.125
+#   end
+# end
+
+# live_loop :heavy_kick do
+#   use_random_seed 42
+#   8.times do
+#     if one_in 5
+#       sample :drum_heavy_kick
+#     end
+#     sleep 0.125
+#   end
+# end
+
+## Andre ting at undersøge:
+## - Brug rand som parameter til f.eks. pitch, amp, pan, rate parametre
+## - Undersøg "shuffle" og "choose" i dokumentationen til at spille noder med for at lave tilfældige melodier
+##   (prøv evt at kombinere det med "chord")
