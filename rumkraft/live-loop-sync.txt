@@ -37,7 +37,7 @@ end
 # end
 
 # live_loop :snap do
-#   # sync not really needed,
+#   # no need to comment out sync,
 #   # since loops spans several whole bars
 #   sync :bar
 #   sample :perc_snap
