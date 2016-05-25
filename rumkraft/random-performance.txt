@@ -1,0 +1,53 @@
+bd = true
+hh = true
+
+live_loop :kick do
+  if bd
+    sample :drum_bass_soft
+  end
+  sleep 0.5
+end
+
+live_loop :snare do
+  sleep 0.5
+  sample :drum_snare_soft
+  sleep 0.25+0.125
+  if one_in 2
+    sample :drum_snare_soft
+  end
+  sleep 0.125
+end
+
+live_loop :hihat do
+  if hh
+    if one_in 5
+      sample :drum_cymbal_open, rate: 1.5, amp: 0.5, sustain: 0.25
+    else
+      sample :drum_cymbal_closed, rate: 1.5, amp: [0.5, 1].choose, sustain: 0.1
+    end
+    sleep [0.5, 0.25, 0.125].choose
+  else
+    sleep 0.5
+  end
+end
+
+live_loop :bass do
+  with_synth :tb303 do
+    play :c2, release: 0.2, cutoff: rrand(20,100)
+    sleep [0.5, 0.25].choose
+  end
+end
+
+live_loop :chords do
+  with_fx :echo, mix: 0.4 do
+    with_synth :piano do
+      play chord([:c4, :f3].choose, 'm7+9')
+    end
+    sleep 0.5+0.25
+  end
+end
+
+live_loop :arp do
+  play chord(:c4, 'm7+9').tick, amp: 0.3, release: 0.1
+  sleep 0.25/3.0
+end
