@@ -1,0 +1,49 @@
+# 1. Press Run to start the (silent) metronome
+
+# 2. Comment in a live-loop (eg kick), then Run
+#    The loop will sync with the metronome
+
+# 3. Comment out `sync :bar`, then Run
+#    The loop will now loop correctly but stay in rhythm
+
+# 4. Change live loop, then Run
+#    The loop stays in rhythm
+
+use_bpm 120
+
+# This live loop is just a metronome that 
+# cues every four beats (one bar)
+live_loop :bar do
+  sleep 4
+end
+
+# live_loop :kick do
+#   sync :bar
+#   sample :drum_bass_soft
+#   sleep 2
+# end
+
+# live_loop :snare do
+#   sync :bar
+#   sleep 1
+#   sample :drum_snare_hard
+#   sleep 1
+# end
+
+# live_loop :hh do
+#   sync :bar
+#   sample :drum_cymbal_closed
+#   sleep 0.5
+# end
+
+# live_loop :snap do
+#   # no need to comment out sync,
+#   # since loops spans several whole bars
+#   sync :bar
+#   sample :perc_snap
+#   sleep 1.5
+#   sample :perc_snap
+#   sleep 0.5
+#   sample :perc_snap
+#   sleep 2
+# end
